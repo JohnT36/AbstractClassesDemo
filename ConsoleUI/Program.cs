@@ -16,13 +16,7 @@ namespace ConsoleUI
 
             #region Vehicles
 
-            /*
-             * Create an abstract class called Vehicle
-             * The vehicle class shall have three string properties Year, Make, and Model
-             * Set the defaults to something generic in the Vehicle class
-             * Vehicle shall have an abstract method called DriveAbstract with no implementation
-             * Vehicle shall have a virtual method called DriveVirtual with a base implementation.
-             */
+
 
             /* 
              * Now create 2 non-abstract classes: Car and Motorcycle, that inherit from Vehicle
@@ -32,6 +26,31 @@ namespace ConsoleUI
             */
 
             // Create a list of Vehicle called vehicles
+
+
+            List<Vehicle> vehicles = new List<Vehicle>();
+
+            Car johnsC = new Car() { HasTrunk = true, Make = "Honda", Model = "Civic", Year = 2013 };
+
+            Motorcycle alinasM = new Motorcycle() { HasSideCart = false, Make = "Harley", Model = "Choppah", Year = 1995 };
+
+            Vehicle justinsC = new Car() { HasTrunk = false, Make = "Dodge", Model = "Ram", Year = 2010};
+
+            Vehicle crystalineC = new Car() { HasTrunk = true, Make = "Hundai", Model = "Something", Year = 2015 };
+
+            vehicles.Add(johnsC);
+            vehicles.Add(justinsC);
+            vehicles.Add(alinasM);
+            vehicles.Add(crystalineC);
+
+            foreach (var vehicle in vehicles)
+            {
+                Console.WriteLine($"Make: {vehicle.Make}, Model: {vehicle.Model}, Year:  {vehicle.Year}");
+                vehicle.DriveVirtual();
+                vehicle.DriveAbstract();
+                Console.WriteLine("-----------------------");
+                
+            }
 
             /*
              * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
